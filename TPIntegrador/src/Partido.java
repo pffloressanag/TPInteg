@@ -1,30 +1,22 @@
 public class Partido {
-    private Equipo equipo1;
-    private Equipo equipo2;
+    private String equipo1;
     private int golesEquipo1;
+    private String equipo2;
     private int golesEquipo2;
 
-    public Partido(Equipo equipo1, Equipo equipo2, int golesEquipo1, int golesEquipo2) {
+    public Partido(String equipo1, int golesEquipo1, String equipo2, int golesEquipo2) {
         this.equipo1 = equipo1;
-        this.equipo2 = equipo2;
         this.golesEquipo1 = golesEquipo1;
+        this.equipo2 = equipo2;
         this.golesEquipo2 = golesEquipo2;
     }
 
-    public Equipo getEquipo1() {
+    public String getEquipo1() {
         return equipo1;
     }
 
-    public void setEquipo1(Equipo equipo1) {
+    public void setEquipo1(String equipo1) {
         this.equipo1 = equipo1;
-    }
-
-    public Equipo getEquipo2() {
-        return equipo2;
-    }
-
-    public void setEquipo2(Equipo equipo2) {
-        this.equipo2 = equipo2;
     }
 
     public int getGolesEquipo1() {
@@ -35,6 +27,14 @@ public class Partido {
         this.golesEquipo1 = golesEquipo1;
     }
 
+    public String getEquipo2() {
+        return equipo2;
+    }
+
+    public void setEquipo2(String equipo2) {
+        this.equipo2 = equipo2;
+    }
+
     public int getGolesEquipo2() {
         return golesEquipo2;
     }
@@ -43,18 +43,14 @@ public class Partido {
         this.golesEquipo2 = golesEquipo2;
     }
 
-    public String resultado(){
-        String result=" ";
-        if (golesEquipo1 > golesEquipo2){
-            result = "Ganador Equipo 1";
-        } else if (golesEquipo1 < golesEquipo2) {
-            result = "Ganador Equipo 2";
-        }else {
-            result = "Empataron";
-        }
-        return result;
-
+    @Override
+    public String toString() {
+        return "Partido{" +
+                "equipo1='" + equipo1 + '\'' +
+                ", golesEquipo1=" + golesEquipo1 +
+                ", equipo2='" + equipo2 + '\'' +
+                ", golesEquipo2=" + golesEquipo2 +
+                '}';
     }
-
 }
 

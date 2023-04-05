@@ -1,58 +1,30 @@
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) throws java.io.IOException {
+    public static void main(String[] args) throws IOException {
 
-        BufferedReader s1 = null;
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("equipos.txt"));
-                String s2 = br.readLine();
-                String[] l1 = s2.split(";");
-                Equipo equipo1 = new Equipo(l1[0], l1[1]);
+        Path archivo = Paths.get("resultados.txt");
+        Scanner leer = new Scanner(archivo);
 
-                s2 = br.readLine();
-                String[] l2 = s2.split(";");
-                Equipo equipo2 = new Equipo(l2[0], l2[1]);
+        leer.useDelimiter("[;\\r]");
 
+        Resultado r = new Resultado();
 
-            int ge1 = (int)(Math.random()*10+1);
-            int ge2 = (int)(Math.random()*10+1);
+        while (leer.hasNext()){ //En cada vuelta lee una línea del archivo
+            String nome1 = leer.next();
+            int ge1 = leer.nextInt();
+            String nome2 = leer.next();
+            int ge2 = leer.nextInt();
+            Partido nuevo = new Partido(nome1,ge1,nome2,ge2);
+            r.agregarPartido(nuevo);
+        }
 
-                Partido partido1 = new Partido(equipo1,equipo2,ge1,ge2);
+        System.out.println(r.toString());
 
-
-            System.out.println(partido1.resultado());
-            System.out.println("Equipo: "+ partido1.getEquipo1().getNombre() + " -  Goles: " + partido1.getGolesEquipo1());
-            System.out.println("Equipo: "+ partido1.getEquipo2().getNombre() + " -  Goles: " + partido1.getGolesEquipo2());
-
-
-
-
-
-
-            } catch(FileNotFoundException ex){
-                System.out.println("Error: Archivo no encontrado");
-                ex.printStackTrace();
-            } finally{
-                try {
-
-                    // Cerrar el archivo si se ha podido abrir
-                    if (s1 != null) {
-                        s1.close();
-                    }
-                } catch (Exception ex) {
-                    System.out.println("Error al cerrar el archivo");
-                    ex.printStackTrace();
-                }
-            }
-
-
-
-
-
-
-
+        leer.close();
 
         }
     }
