@@ -10,16 +10,18 @@ public class Pronostico {
 
     private Partido partido;
     private Equipo equipo;
-    private ResultadoEnum resultadoEnum;
+    private ResultadoEnum resultado;
     private int puntos = 0;
     private int pxa = 1;
 
     public Pronostico() {
-        this.partido = partido;
-        this.equipo = equipo;
-        this.resultadoEnum = resultadoEnum;
-        this.puntos = puntos;
-        this.pxa = pxa;
+
+    }
+
+    public int puntos(){
+        int punt=0;
+
+        return punt;
     }
 }
 

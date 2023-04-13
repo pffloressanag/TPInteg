@@ -2,24 +2,35 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.ArrayList;
-
 @Getter
 @Setter
 @ToString
 
 public class Partido {
-    private String equipo1;
+    private int id_partido;
+    private Equipo equipo1;
+    private Equipo equipo2;
     private int golesEquipo1;
-    private String equipo2;
-    private int getGolesEquipo2;
-    private ArrayList<Partido> resultado = new ArrayList<>();
+    private int golesEquipo2;
 
-    public Partido(String equipo1, int golesEquipo1,String equipo2, int getGolesEquipo2) {
-        this.equipo1 = equipo1;
-        this.golesEquipo1 = golesEquipo1;
-        this.equipo2 = equipo2;
-        this.getGolesEquipo2 = getGolesEquipo2;
+    public Partido(String nome1, int ge1, String nome2, int ge2) {
+
     }
 
+    public ResultadoEnum resultado(Equipo equipo1) {
+        Equipo uno = null;
+        ResultadoEnum res = null;
+        golesEquipo1 = 0;
+        golesEquipo2 = 0;
+        if (golesEquipo1>golesEquipo2){
+            res = ResultadoEnum.ganador;
+            String a = uno.getNombre();
+        } else if (golesEquipo1<golesEquipo2) {
+            res = ResultadoEnum.perdedor;
+            String a = uno.getNombre();
+        }else {
+            res = ResultadoEnum.empate;
+        }
+        return res;
+    }
 }

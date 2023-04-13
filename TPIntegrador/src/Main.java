@@ -12,9 +12,10 @@ public class Main {
         Equipo equipo6 = new Equipo(6,"Cerro","Paraguay");
         Equipo equipo7 = new Equipo(7,"Boca Juniors","Argentina");
         Equipo equipo8 = new Equipo(8,"Corinthians","Brasil");
+        System.out.println(equipo7);
 
 
 
 
-        }
+    }
 }
